@@ -1,0 +1,16 @@
+/home/dani/git/cppboilerplate/build/CMakeFiles/googletest.dir
+/home/dani/git/cppboilerplate/build/CMakeFiles/test.dir
+/home/dani/git/cppboilerplate/build/CMakeFiles/edit_cache.dir
+/home/dani/git/cppboilerplate/build/CMakeFiles/rebuild_cache.dir
+/home/dani/git/cppboilerplate/build/src/CMakeFiles/mylib.dir
+/home/dani/git/cppboilerplate/build/src/CMakeFiles/test.dir
+/home/dani/git/cppboilerplate/build/src/CMakeFiles/edit_cache.dir
+/home/dani/git/cppboilerplate/build/src/CMakeFiles/rebuild_cache.dir
+/home/dani/git/cppboilerplate/build/app/CMakeFiles/mylib_app.dir
+/home/dani/git/cppboilerplate/build/app/CMakeFiles/test.dir
+/home/dani/git/cppboilerplate/build/app/CMakeFiles/edit_cache.dir
+/home/dani/git/cppboilerplate/build/app/CMakeFiles/rebuild_cache.dir
+/home/dani/git/cppboilerplate/build/tests/CMakeFiles/mylib_tests.dir
+/home/dani/git/cppboilerplate/build/tests/CMakeFiles/test.dir
+/home/dani/git/cppboilerplate/build/tests/CMakeFiles/edit_cache.dir
+/home/dani/git/cppboilerplate/build/tests/CMakeFiles/rebuild_cache.dir

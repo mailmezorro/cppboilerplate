@@ -1,0 +1,13 @@
+# Target labels
+ googletest
+# Source files and their labels
+/home/dani/git/cppboilerplate/build/CMakeFiles/googletest
+/home/dani/git/cppboilerplate/build/CMakeFiles/googletest.rule
+/home/dani/git/cppboilerplate/build/CMakeFiles/googletest-complete.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-build.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-configure.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-download.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-install.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-mkdir.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-patch.rule
+/home/dani/git/cppboilerplate/build/gtest/src/googletest-stamp/googletest-update.rule

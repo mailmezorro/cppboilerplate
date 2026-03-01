@@ -1,0 +1,8 @@
+Checks: >-
+  clang-analyzer-*,
+  performance-*,
+  readability-*,
+  modernize-*
+WarningsAsErrors: ''
+HeaderFilterRegex: '.*(include|src|app|tests)/.*'
+FormatStyle: file

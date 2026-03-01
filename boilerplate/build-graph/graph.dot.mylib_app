@@ -1,0 +1,8 @@
+digraph "mylib_app" {
+node [
+  fontsize = "12"
+];
+    "node1" [ label = "mylib_app", shape = egg ];
+    "node0" [ label = "mylib", shape = octagon ];
+    "node1" -> "node0" [ style = dotted ] // mylib_app -> mylib
+}

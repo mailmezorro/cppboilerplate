@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build_type: [Debug, Release]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
+      - name: Configure
+        run: cmake -S test_project -B build -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
+      - name: Build
+        run: cmake --build build
+      - name: Test
+        run: ctest --test-dir build --output-on-failure
+
+  tidy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build clang-tidy
+      - name: Configure (clang-tidy)
+        run: cmake -S test_project -B build-tidy -G Ninja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TIDY=ON
+      - name: Build (clang-tidy)
+        run: cmake --build build-tidy

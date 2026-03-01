@@ -1,0 +1,14 @@
+digraph "mylib_tests" {
+node [
+  fontsize = "12"
+];
+    "node2" [ label = "mylib_tests", shape = egg ];
+    "node3" [ label = "/home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest.a", shape = septagon ];
+    "node2" -> "node3" [ style = dotted ] // mylib_tests -> /home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest.a
+    "node4" [ label = "/home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest_main.a", shape = septagon ];
+    "node2" -> "node4" [ style = dotted ] // mylib_tests -> /home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest_main.a
+    "node0" [ label = "mylib", shape = octagon ];
+    "node2" -> "node0" [ style = dotted ] // mylib_tests -> mylib
+    "node5" [ label = "pthread", shape = septagon ];
+    "node2" -> "node5" [ style = dotted ] // mylib_tests -> pthread
+}

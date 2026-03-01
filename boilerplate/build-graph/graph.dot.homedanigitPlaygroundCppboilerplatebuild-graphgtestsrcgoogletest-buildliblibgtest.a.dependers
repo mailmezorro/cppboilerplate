@@ -1,0 +1,8 @@
+digraph "/home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest.a" {
+node [
+  fontsize = "12"
+];
+    "node3" [ label = "/home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest.a", shape = septagon ];
+    "node2" [ label = "mylib_tests", shape = egg ];
+    "node2" -> "node3" [ style = dotted ] // mylib_tests -> /home/dani/git/PlaygroundCpp/boilerplate/build-graph/gtest/src/googletest-build/lib/libgtest.a
+}

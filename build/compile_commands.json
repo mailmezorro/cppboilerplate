@@ -1,0 +1,20 @@
+[
+{
+  "directory": "/home/dani/git/cppboilerplate/build/src",
+  "command": "/usr/bin/g++  -I/home/dani/git/PlaygroundCpp/boilerplate/src/../include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/mylib.dir/mylib.cpp.o -c /home/dani/git/PlaygroundCpp/boilerplate/src/mylib.cpp",
+  "file": "/home/dani/git/PlaygroundCpp/boilerplate/src/mylib.cpp",
+  "output": "src/CMakeFiles/mylib.dir/mylib.cpp.o"
+},
+{
+  "directory": "/home/dani/git/cppboilerplate/build/app",
+  "command": "/usr/bin/g++  -I/home/dani/git/PlaygroundCpp/boilerplate/src/../include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/mylib_app.dir/main.cpp.o -c /home/dani/git/PlaygroundCpp/boilerplate/app/main.cpp",
+  "file": "/home/dani/git/PlaygroundCpp/boilerplate/app/main.cpp",
+  "output": "app/CMakeFiles/mylib_app.dir/main.cpp.o"
+},
+{
+  "directory": "/home/dani/git/cppboilerplate/build/tests",
+  "command": "/usr/bin/g++  -I/home/dani/git/cppboilerplate/build/gtest/src/googletest/googletest/include -I/home/dani/git/PlaygroundCpp/boilerplate/src/../include -g -std=c++17 -Wall -Wextra -Wpedantic -o CMakeFiles/mylib_tests.dir/test_mylib.cpp.o -c /home/dani/git/PlaygroundCpp/boilerplate/tests/test_mylib.cpp",
+  "file": "/home/dani/git/PlaygroundCpp/boilerplate/tests/test_mylib.cpp",
+  "output": "tests/CMakeFiles/mylib_tests.dir/test_mylib.cpp.o"
+}
+]
