@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/mylib_app.dir/main.cpp.o -o mylib_app  ../src/libmylib.a 

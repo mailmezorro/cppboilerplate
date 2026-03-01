@@ -2,32 +2,45 @@ name: CI
 
 on:
   push:
+    paths:
+      - 'boilerplate/**'
+      - '.github/workflows/ci.yml'
   pull_request:
+    paths:
+      - 'boilerplate/**'
+      - '.github/workflows/ci.yml'
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        build_type: [Debug, Release]
+        compiler: [gcc, clang]
     steps:
       - uses: actions/checkout@v4
       - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build
-      - name: Configure
-        run: cmake -S test_project -B build -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-      - name: Build
-        run: cmake --build build
-      - name: Test
-        run: ctest --test-dir build --output-on-failure
+        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build g++ clang
 
-  tidy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: sudo apt-get update && sudo apt-get install -y cmake ninja-build clang-tidy
-      - name: Configure (clang-tidy)
-        run: cmake -S test_project -B build-tidy -G Ninja -DCMAKE_BUILD_TYPE=Debug -DENABLE_TIDY=ON
-      - name: Build (clang-tidy)
-        run: cmake --build build-tidy
+      - name: Select compiler
+        id: toolchain
+        run: |
+          if [ "${{ matrix.compiler }}" = "gcc" ]; then
+            echo "cc=gcc" >> "$GITHUB_OUTPUT"
+            echo "cxx=g++" >> "$GITHUB_OUTPUT"
+          else
+            echo "cc=clang" >> "$GITHUB_OUTPUT"
+            echo "cxx=clang++" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Configure
+        run: >-
+          cmake -S boilerplate -B boilerplate/build-ci -G Ninja
+          -DCMAKE_BUILD_TYPE=Debug
+          -DCMAKE_C_COMPILER=${{ steps.toolchain.outputs.cc }}
+          -DCMAKE_CXX_COMPILER=${{ steps.toolchain.outputs.cxx }}
+
+      - name: Build
+        run: cmake --build boilerplate/build-ci --parallel
+
+      - name: Test
+        run: ctest --test-dir boilerplate/build-ci --output-on-failure

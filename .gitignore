@@ -1,0 +1,13 @@
+# Root build output
+/build/
+
+# Generic CMake cache/generation artifacts at repository root
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+/CTestTestfile.cmake
+/Testing/
+
+# Common compile databases
+/compile_commands.json

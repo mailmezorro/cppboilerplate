@@ -43,7 +43,7 @@ Wichtig: Das Target ist ein CMake-Objekt. Die gebauten Dateien liegen danach im 
 Datei: `boilerplate/CMakeLists.txt`
 
 - `cmake_minimum_required(VERSION 3.20)`
-- `project(mylib)` setzt den Projektnamen
+- `project(mylib VERSION 1.0.0 LANGUAGES CXX)` setzt Name, Version und Sprache
 - C++ Standard global auf 17
 - Compiler-Warnungen:
   - MSVC: `/W4`
@@ -68,13 +68,13 @@ Wenn `ENABLE_SANITIZERS=ON`:
 
 ## GTest Integration
 
-Im Root wird GoogleTest via `ExternalProject_Add(...)` eingebunden:
+Im Root wird GoogleTest via `FetchContent` eingebunden (nur wenn `BUILD_TESTING=ON`):
 
 - Download von GitHub
-- Build in lokalem Build-Baum
-- Include- und Lib-Pfade werden in Variablen gespeichert
+- Build im aktuellen Build-Baum
+- Bereitstellung als CMake-Targets (`GTest::gtest`, `GTest::gtest_main`)
 
-Diese Variablen werden in `tests/CMakeLists.txt` genutzt.
+In `tests/CMakeLists.txt` wird gegen diese importierten Targets gelinkt.
 
 ## Subdirectory CMakeLists
 
@@ -94,8 +94,7 @@ Diese Variablen werden in `tests/CMakeLists.txt` genutzt.
 ### tests/CMakeLists.txt
 
 - `add_executable(mylib_tests test_mylib.cpp)`
-- linkt gegen `mylib`, `libgtest.a`, `libgtest_main.a`, `pthread`
-- `add_dependencies(mylib_tests googletest)`
+- linkt gegen `mylib`, `GTest::gtest_main`, `Threads::Threads`
 - `add_test(NAME mylib_tests COMMAND mylib_tests)`
 
 ## Warum Library + App trennen?

@@ -1,5 +1,7 @@
 # mylib - C++17 Library with CMake & GTest
 
+[![CI](https://github.com/mailmezorro/cppboilerplate/actions/workflows/ci.yml/badge.svg)](https://github.com/mailmezorro/cppboilerplate/actions/workflows/ci.yml)
+
 A modern C++ library with unit tests using CMake and Google Test Framework.
 
 ## Structure
@@ -46,8 +48,26 @@ cmake --build .
 # Run tests
 ctest --output-on-failure
 
+# Build without tests
+# cmake -S . -B build -DBUILD_TESTING=OFF
+
 # Run demo app
 ./app/mylib_app
+```
+
+## Install
+
+```bash
+cmake -S . -B build
+cmake --build build
+cmake --install build
+```
+
+## Use in Another CMake Project
+
+```cmake
+find_package(mylib REQUIRED)
+target_link_libraries(your_app PRIVATE mylib::mylib)
 ```
 
 ## Functions
@@ -60,7 +80,7 @@ The library currently provides the following functions:
 ## Features
 
 - **CMake Build System** - Modern, cross-platform build
-- **GTest Framework** - Modern unit tests with ExternalProject
+- **GTest Framework** - Modern unit tests with FetchContent
 - **C++17** - Modern C++ standard
 - **Compiler Warnings** - `-Wall -Wextra -Wpedantic` by default
 - **Clear Structure** - src/include/tests separation
@@ -68,7 +88,7 @@ The library currently provides the following functions:
 - **Sanitizers** - ASan + UBSan via `-DENABLE_SANITIZERS=ON`
 - **Formatting** - Supported if a .clang-format exists
 - **Docs** - Optional if a Doxyfile exists
-- **CI** - Optional if a GitHub Actions workflow exists
+- **CI** - GitHub Actions workflow for Linux (GCC/Clang, Build + CTest)
 
 ## Development
 
